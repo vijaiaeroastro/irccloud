@@ -7,6 +7,7 @@ __version__ = "1.0"
 
 import requests
 import time
+import datetime
 import sys
 import traceback
 from os import environ
@@ -76,17 +77,16 @@ class irccloud:
 
     def runner(self):
         self.get_session_id()
+        now = datetime.datetime.now()
         if irccloud.SessionId == "SESSION_FAILURE":
-            print "------> Couldn't get a session initialized. Quitting.. :)"
+            print "------> [{0}] Couldn't get a session initialized. Quitting.. :)".format(now.strftime("%Y-%m-%d %H:%M"))
             sys.exit(0)
         else:
-            while True:
-                self.keep_alive()
-                if irccloud.KeepAliveToken == "KA_ALIVE":
-                    print "------> IRC Cloud Session is Kept alive. Next check in 10 minutes."
-                else:
-                    print "------> IRC Cloud Session could not be Kept alive. Next check in 10 minutes."
-                time.sleep(600)
+            self.keep_alive()
+            if irccloud.KeepAliveToken == "KA_ALIVE":
+                print "------> [{0}] IRC Cloud Session is Kept alive.".format(now.strftime("%Y-%m-%d %H:%M"))
+            else:
+                print "------> [{0}] IRC Cloud Session could not be Kept alive.".format(now.strftime("%Y-%m-%d %H:%M"))
 
 
 if __name__ == "__main__":
