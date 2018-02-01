@@ -1,4 +1,4 @@
-# A Simple script to keep an irc cloud client always alive
+# A Simple script to keep an irc cloud client always alive 
 __author__ = "S Vijaikumar"
 __email__  = "vijai@vijaikumar.in"
 __copyright__ = "Copyright (C) 2017 S Vijai Kumar"
@@ -16,7 +16,7 @@ class irccloud:
     """
     This is a very simple class that takes an user's irc user name
     and password as input and keeps the connection alive to emulate
-    the hearbeat produced due to real browser activity
+    the hearbeat produced due to real browser activity.
     """
     AuthenticationToken = ""
     SessionId = ""
