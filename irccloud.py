@@ -78,6 +78,9 @@ class irccloud:
     def runner(self):
         self.get_session_id()
         now = datetime.datetime.now()
+        print "=================================="
+        print "    IRC Cloud Keep alive Func     "
+        print "=================================="
         if irccloud.SessionId == "SESSION_FAILURE":
             print "------> [{0}] Couldn't get a session initialized. Quitting.. :)".format(now.strftime("%Y-%m-%d %H:%M"))
             sys.exit(0)
