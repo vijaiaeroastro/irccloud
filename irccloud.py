@@ -10,6 +10,7 @@ import time
 import datetime
 import sys
 import traceback
+import logging
 from os import environ
 
 class irccloud:
@@ -25,16 +26,18 @@ class irccloud:
     def __init__(self, email, password):
         self.email = email
         self.password = password
+        logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO)
+        self.log = logging.getLogger(__name__)
 
     def get_authentication_token(self):
         url = "https://www.irccloud.com/chat/auth-formtoken"
         r = requests.post(url)
         response = r.json()
         if response["success"]:
-            print "------> Successfully obtained authentication token."
+            self.log.info("Successfully obtained authentication token.")
             irccloud.AuthenticationToken = response["token"]
         else:
-            print "------> Failed to obtain an authentication token."
+            self.log.error("Failed to obtain an authentication token.")
             irccloud.AuthenticationToken = "AUTH_FAILURE"
 
     def get_session_id(self):
@@ -55,10 +58,10 @@ class irccloud:
             r = requests.post(login_url, data = login_data, headers = headers)
             response = r.json()
             if response["success"]:
-                print "------> Successfully obtained a session id."
+                self.log.info("Successfully obtained a session id.")
                 irccloud.SessionId = response["session"]
             else:
-                print "------> Failed to obtain a session id."
+                self.log.critical("Failed to obtain a session id.")
                 irccloud.SessionId = "SESSION_FAILURE"
 
     def keep_alive(self):
@@ -78,18 +81,16 @@ class irccloud:
     def runner(self):
         self.get_session_id()
         now = datetime.datetime.now()
-        print "=================================="
-        print "    IRC Cloud Keep alive Func     "
-        print "=================================="
+        self.log.debug("   IRC Cloud Keep alive Func   ")
         if irccloud.SessionId == "SESSION_FAILURE":
-            print "------> [{0}] Couldn't get a session initialized. Quitting.. :)".format(now.strftime("%Y-%m-%d %H:%M"))
+            self.log.critical("Couldn't get a session initialized. Quitting... :(")
             sys.exit(0)
         else:
             self.keep_alive()
             if irccloud.KeepAliveToken == "KA_ALIVE":
-                print "------> [{0}] IRC Cloud Session is Kept alive.".format(now.strftime("%Y-%m-%d %H:%M"))
+                self.log.info("IRC Cloud Session is Kept alive.")
             else:
-                print "------> [{0}] IRC Cloud Session could not be Kept alive.".format(now.strftime("%Y-%m-%d %H:%M"))
+                self.log.error("IRC Cloud Session could not be Kept alive.")
 
 
 if __name__ == "__main__":
@@ -99,7 +100,7 @@ if __name__ == "__main__":
         irc = irccloud(email, password)
         irc.runner()
     except KeyboardInterrupt:
-        print "----> Shutdown requested. Exiting script. Thank you :)"
+        self.log.debug("Shutdown requested. Exiting script. Thank you :)")
         sys.exit(0)
     except Exception:
         traceback.print_exc(file=sys.stdout)
