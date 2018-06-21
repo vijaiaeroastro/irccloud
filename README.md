@@ -16,4 +16,4 @@ Requirements
   
 License
 =======
-MIT
+UNLICENSE
