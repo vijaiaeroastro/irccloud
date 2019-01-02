@@ -14,6 +14,12 @@ Requirements
 * Python 2.7
   * Requests library
   
+This script also works with python 3
+Be sure to have `python3-dev` installed in your machine.
+Clone the repository with `git clone https://github.com/vijaiaeroastro/irccloud.git`
+Enter into the cloned repository with `cd irccloud`
+Install the requirements with `python3 -m pip install -r requirements.txt`
+  
 License
 =======
 UNLICENSE
