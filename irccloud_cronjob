@@ -1,6 +1,7 @@
 #!/bin/bash
 #### Instructions ###
 # chmod +x irccloud_cronjob
+# Edit 'your@email' and 'yourpassword' to match your IRCCloud account
 # Add the following to your crontab
 # 0 * * * * $HOME/irccloud/irccloud_cronjob >/dev/null 2>&1
 
