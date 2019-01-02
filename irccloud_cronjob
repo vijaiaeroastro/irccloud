@@ -1,4 +1,9 @@
 #!/bin/bash
+#### Instructions ###
+# chmod +x irccloud_cronjob
+# Add the following to your crontab
+# 0 * * * * $HOME/irccloud/irccloud_cronjob >/dev/null 2>&1
+
 export IRCCLOUD_USERNAME="your@email"
 export IRCCLOUD_PASSWORD="yourpassword"
 python3 "$HOME/irccloud.py"
