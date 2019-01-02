@@ -20,7 +20,8 @@ Be sure to have `python3-dev` installed in your machine.
 Clone the repository with `git clone https://github.com/vijaiaeroastro/irccloud.git`  
 Enter into the cloned repository with `cd irccloud`  
 Install the requirements with `python3 -m pip install -r requirements.txt`  
-If the above command fails, install `python3-pip`
+If the above command fails, install `python3-pip`  
+Use the bash script `irccloud_cronjob` provided for ease of use
   
 License
 =======
