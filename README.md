@@ -14,6 +14,7 @@ Requirements
 * Python 2.7
   * Requests library
   
+### For use in your own VPS
 This script also works with python 3  
 Be sure to have `python3-dev` installed in your machine.  
 Clone the repository with `git clone https://github.com/vijaiaeroastro/irccloud.git`  
