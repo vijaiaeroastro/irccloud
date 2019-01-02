@@ -7,4 +7,4 @@
 
 export IRCCLOUD_USERNAME="your@email"
 export IRCCLOUD_PASSWORD="yourpassword"
-python3 "$HOME/irccloud.py"
+python "$HOME/irccloud.py"

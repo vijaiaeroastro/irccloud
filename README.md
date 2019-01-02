@@ -15,12 +15,11 @@ Requirements
   * Requests library
   
 ### For use in your own VPS
-This script also works with python 3  
-Be sure to have `python3-dev` installed in your machine.  
+Be sure to have `python-dev` installed in your machine.  
 Clone the repository with `git clone https://github.com/vijaiaeroastro/irccloud.git`  
 Enter into the cloned repository with `cd irccloud`  
-Install the requirements with `python3 -m pip install -r requirements.txt`  
-If the above command fails, install `python3-pip`  
+Install the requirements with `python -m pip install -r requirements.txt`  
+If the above command fails, install `python-pip`  
 Use the bash script `irccloud_cronjob` provided for ease of use
   
 License
