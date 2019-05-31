@@ -1,13 +1,11 @@
 # A Simple script to keep an irc cloud client always alive 
 __author__ = "S Vijaikumar"
 __email__  = "vijai@vijaikumar.in"
-__copyright__ = "Copyright (C) 2018 S Vijai Kumar"
+__copyright__ = "Copyright (C) 2019 S Vijai Kumar"
 __license__ = "UNLICENSE"
 __version__ = "1.0"
 
 import requests
-import time
-import datetime
 import sys
 import traceback
 import logging
@@ -80,7 +78,6 @@ class irccloud:
 
     def runner(self):
         self.get_session_id()
-        now = datetime.datetime.now()
         self.log.debug("   IRC Cloud Keep alive Func   ")
         if irccloud.SessionId == "SESSION_FAILURE":
             self.log.critical("Couldn't get a session initialized. Quitting... :(")
