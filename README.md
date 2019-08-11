@@ -1,3 +1,5 @@
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/vijaiaeroastro/irccloud.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/vijaiaeroastro/irccloud/alerts/)
+
 # IRC Cloud Keep Alive Utility
 A simple heroku application to keep your irccloud connection alive always (without paying :dollar:)!
 
