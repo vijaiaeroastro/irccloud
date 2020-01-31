@@ -13,7 +13,7 @@ https://vijaikumar.in/keeping-your-irccloud-client-always-connected-for-free-82d
 Requirements
 ============
 * A Free heroku account
-* Python 2.7
+* Python 3.7
   * Requests library
   
 ### For use in your own VPS
