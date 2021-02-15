@@ -1,7 +1,7 @@
 # A Simple script to keep an irc cloud client always alive 
 __author__ = "S Vijaikumar"
 __email__  = "vijai@vijaikumar.in"
-__copyright__ = "Copyright (C) 2020 S Vijai Kumar"
+__copyright__ = "Copyright (C) 2021 S Vijai Kumar"
 __license__ = "UNLICENSE"
 __version__ = "1.0"
 
