@@ -1,10 +1,19 @@
 #!/bin/bash
-#### Instructions ###
-# chmod +x irccloud_cronjob
-# Edit 'your@email' and 'yourpassword' to match your IRCCloud account
+##########
+# Instructions
+##########
+# Make the script executable with:
+#       `chmod +x irccloud_cronjob'
+#
+# Edit 'your_email' and 'your_password' to match your IRCCloud account
+#
 # Add the following to your crontab
-# 0 * * * * $HOME/irccloud/irccloud_cronjob >/dev/null 2>&1
+#       `0 * * * * $HOME/irccloud/irccloud_cronjob >/dev/null 2>&1'
+#
+# Enjoy!
+##########
+your_email="email@gmail.com"
+your_password="1234567890"
 
-export IRCCLOUD_USERNAME="your@email"
-export IRCCLOUD_PASSWORD="yourpassword"
-python "$HOME/irccloud.py"
+# You shouldn`t need to edit anything below unless you`ve cloned the repo to a different folder name
+IRCCLOUD_USERNAME="$your_email" IRCCLOUD_PASSWORD="$your_password" python3 "$HOME/irccloud/irccloud.py"
