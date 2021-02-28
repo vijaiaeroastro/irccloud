@@ -11,11 +11,12 @@ Its publicly listed on github and you can read it here [IRC Cloud Wiki](https://
 https://vijaikumar.in/keeping-your-irccloud-client-always-connected-for-free-82db71b3cff3
 
 ## Requirements
+### Heroku
 * A Free heroku account
 * Python 3.7
   * Requests library
   
-## For use in your own VPS
+### For use in your own VPS
 - Be sure to have `python-dev` installed in your machine.  
 - Clone the repository with `git clone https://github.com/vijaiaeroastro/irccloud.git`  
 - Enter into the cloned repository with `cd irccloud`  
@@ -26,6 +27,5 @@ https://vijaikumar.in/keeping-your-irccloud-client-always-connected-for-free-82d
 and add this to it (this will  be executed every hour):  
 `0 * * * * IRCCLOUD_USERNAME="your@email.address" IRCCLOUD_PASSWORD="your_password" python3 /home/irccloud/irccloud/irccloud.py >/dev/null 2>&1`
   
-License
-=======
+## License
 UNLICENSE
