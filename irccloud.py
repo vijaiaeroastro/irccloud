@@ -14,8 +14,6 @@ from os import environ
 import json
 import random
 
-os.chdir(os.path.dirname(sys.argv[0]))
-
 class irccloud:
     """
     This is a very simple class that takes an user's irc user name
@@ -68,6 +66,7 @@ class irccloud:
                 irccloud.SessionId = "SESSION_FAILURE"
 
     def keep_alive(self):
+        os.chdir(os.path.dirname(sys.argv[0]))
         ua_file = open("user_agents.json", "r+")
         user_agents = json.load(ua_file)
         ua_file.close()
