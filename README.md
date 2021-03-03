@@ -26,6 +26,7 @@ https://vijaikumar.in/keeping-your-irccloud-client-always-connected-for-free-82d
 - You can also specify everything on a `crontab` entry instead. Just type `crontab -e`, choose your favourite text editor  
 and add this to it (this will  be executed every hour):  
 `0 * * * * IRCCLOUD_USERNAME="your@email.address" IRCCLOUD_PASSWORD="your_password" python3 /home/irccloud/irccloud/irccloud.py >/dev/null 2>&1`
+
 **NOTE**: If you have a VPS running Linux, i assume you know how to use basic Linux commands. I would highly advise you to do what suits your workflow the most.
   
 ## License
