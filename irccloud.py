@@ -1,7 +1,7 @@
 # A Simple script to keep an irc cloud client always alive 
 __author__ = "S Vijaikumar"
 __email__  = "vijai@vijaikumar.in"
-__copyright__ = "Copyright (C) 2021 S Vijai Kumar & EliteOfGods"
+__copyright__ = "Copyright (C) 2021 S Vijai Kumar"
 __license__ = "UNLICENSE"
 __version__ = "1.0"
 
@@ -9,9 +9,12 @@ import requests
 import sys
 import traceback
 import logging
-from os import environ
 import json
+import time
+from timeloop import Timeloop
+from datetime import timedelta
 import random
+from os import environ
 
 class irccloud:
     """
@@ -68,7 +71,6 @@ class irccloud:
         ua_file = open("user_agents.json", "r+")
         user_agents = json.load(ua_file)
         ua_file.close()
-
         stream_url = "https://www.irccloud.com/chat/stream"
         headers = {"Connection" : "keep-alive",
                    "Accept-Encoding" : "gzip,deflate,sdch",
@@ -96,7 +98,10 @@ class irccloud:
                 self.log.error("IRC Cloud Session could not be Kept alive.")
 
 
-if __name__ == "__main__":
+tl = Timeloop()
+
+@tl.job(interval=timedelta(seconds=3600))
+def timed_executor():
     try:
         email = environ.get("IRCCLOUD_USERNAME")
         password = environ.get("IRCCLOUD_PASSWORD")
@@ -108,3 +113,6 @@ if __name__ == "__main__":
     except Exception:
         traceback.print_exc(file=sys.stdout)
         sys.exit(0)
+
+if __name__ == "__main__":
+    tl.start(block=True)

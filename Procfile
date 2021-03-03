@@ -1,2 +1,2 @@
-worker: python heroku.py
+worker: python irccloud.py
 
