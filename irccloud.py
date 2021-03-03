@@ -9,9 +9,12 @@ import requests
 import sys
 import traceback
 import logging
+import os
 from os import environ
 import json
 import random
+
+os.chdir(os.path.dirname(sys.argv[0]))
 
 class irccloud:
     """
