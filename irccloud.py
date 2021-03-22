@@ -26,9 +26,10 @@ class irccloud:
     SessionId = ""
     KeepAliveToken = ""
 
-    def __init__(self, email, password):
+    def __init__(self, email, password, debug_mode=False):
         self.email = email
         self.password = password
+        self.debugging = debug_mode
         logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO)
         self.log = logging.getLogger(__name__)
 
@@ -36,6 +37,8 @@ class irccloud:
         url = "https://www.irccloud.com/chat/auth-formtoken"
         r = requests.post(url)
         response = r.json()
+        if debug_mode:
+            self.log.debug(response)
         if response["success"]:
             self.log.info("Successfully obtained authentication token.")
             irccloud.AuthenticationToken = response["token"]
@@ -60,6 +63,8 @@ class irccloud:
             }
             r = requests.post(login_url, data = login_data, headers = headers)
             response = r.json()
+            if self.debugging:
+                self.log.debug(response)
             if response["success"]:
                 self.log.info("Successfully obtained a session id.")
                 irccloud.SessionId = response["session"]
@@ -79,6 +84,8 @@ class irccloud:
                    "Host":"www.irccloud.com"
         }
         r = requests.post(stream_url, headers = headers)
+        if self.debugging:
+            self.log.debug(r.json())
         if r.status_code == 200:
             irccloud.KeepAliveToken = "KA_ALIVE"
         else:
@@ -105,7 +112,8 @@ def timed_executor():
     try:
         email = environ.get("IRCCLOUD_USERNAME")
         password = environ.get("IRCCLOUD_PASSWORD")
-        irc = irccloud(email, password)
+        debug_mode = False
+        irc = irccloud(email, password, debug_mode)
         irc.runner()
     except KeyboardInterrupt:
         self.log.debug("Shutdown requested. Exiting script. Thank you :)")
