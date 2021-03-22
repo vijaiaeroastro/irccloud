@@ -16,6 +16,8 @@ https://vijaikumar.in/keeping-your-irccloud-client-always-connected-for-free
 * Python 3.7
   * Requests library
   
+** DEBUGGING ** There is a `debug_mode` variable in the main loop. If you run into some issues, please set this to True (This is False by default) and share the output from logs.  
+  
 ### For use in your own VPS
 Check out [https://github.com/vijaiaeroastro/irccloud.self.git](https://github.com/vijaiaeroastro/irccloud.self.git)
   
