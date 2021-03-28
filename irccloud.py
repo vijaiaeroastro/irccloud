@@ -37,7 +37,7 @@ class irccloud:
         url = "https://www.irccloud.com/chat/auth-formtoken"
         r = requests.post(url)
         response = r.json()
-        if debug_mode:
+        if self.debugging:
             self.log.debug(response)
         if response["success"]:
             self.log.info("Successfully obtained authentication token.")
